@@ -11,7 +11,7 @@ abstract class Data {
 
 abstract class ContainsKeyAndGetHash {
   bool containsKey(Object key);
-  bool operator [](Object key);
+  @S("Top") bool operator [](Object key);
 }
 
 class Database {
