@@ -2,21 +2,15 @@ import 'dart:html';
 import 'package:TRNIdart/TRNIdart.dart';
 import 'database.dart';
 
-abstract class Value {
-  @S("Hash") int get value;
-}
-
-abstract class Hash {
-  int get hashCode;
-}
-
 class Home {
   void render() {
     Login login = new Login();
     querySelector('#button').onClick.listen((MouseEvent e) {
       InputElement emailField = querySelector('#email');
-      @S("Value") InputElement passwordField = querySelector('#password');
-      if (login.login(emailField.value, passwordField.value)) {
+      InputElement passwordField = querySelector('#password');
+      String username = emailField.value;
+      @S("Hash") String guess = passwordField.value;
+      if (login.login(username, guess)) {
         querySelector('#title').text = "Welcome";
       }
       else {
